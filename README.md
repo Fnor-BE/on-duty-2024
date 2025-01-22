@@ -1,62 +1,41 @@
-# Project Title
+# On Duty 2024
 
-Simple overview of use/purpose.
+This project aims to study the presence of workers in several workshops. While the worksheets provided is full of data, it not formatted in a computer-friendly way, which rends its exploitation difficult.
 
-## Description
+This project will thus consist of two parts:
+1. An **ETL** (Extract, Transform, Load): transforming the data into a form that's easily processable.
+2. A **data visualization** part to explore this data.
 
-An in-depth paragraph about your project and overview of use.
+## Objective
+The objective of this project is to study the presence of workers through the workshops, and count their use of sick days and time-off days. This data should be able to be aggregated by month and by workshop.
 
-## Getting Started
+The project should answer these questions:
+- How many sick days were taken?
+- How many days-off did people take?
+- How do workshops compare to each other in presence rate of their workers?
 
-### Dependencies
+A problem to be solved is that sick leaves and time-off are encoded, from first day to last day, across weekends and holidays. The later days should be not be counted and need to be processed out. More advanced case like part-time workers should also be handled.
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+In addition, as a personal interest I will also study how these sick/off days are taken across the week and year, to answer these questions:
+- Are sick and off-days more easily taken closer to the weekend?
+- Are they more easily taken close to a holiday?
 
-### Installing
+## Source data
+The project has two source files:
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+ - `data/on-duty-2024.xslx`: an excel file containing the presence data, spread into 12 sheets repesenting each month.
+    - The file contains the worker information, followed by their presence data for each day (accounted for both am and pm), encoded in the form of keywords explained at the top of each sheet, and followed by crude calculations.
+    - The file also contains a reference sheet displaying most workers and their expected retirement date.
+- `data/holidays.csv`: a list of holidays the workshops aren't working.
 
-### Executing program
+It is to be noted that the workshops also don't work over the weekends.
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+While the source file may initially appear well-made, it becomes quickly apparent that it has severe flaws:
+- Some of the rows use lookups to find worker names based on their ID, but others don't. It seems a person with some excel knowledge set the file up using lookups, but the person later maintaining it didn't know how to use them and entered raw data.
+- Weekends and holidays are manually handled: cells are greyed and kept mostly empty, but there is no programmatic way to handle them. It will have to be remedied to correctly count sick and time-off days.
+- Most of the conditional formatting is done by hand.
 
-## Help
+This project aims to fix all this issues.
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
-
-## Authors
-
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+## Technologies
+Python
