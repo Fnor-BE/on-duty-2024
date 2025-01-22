@@ -1,26 +1,27 @@
-Code,Description,Category
-P,"Present",Working
-R1,"Time off from overtime",Off
-TD,"Travail à Distance",Working
-Mi,"Missions",Working
-Mis,"Mission Renforts",Working
-Ma,"Sick",Sick
-MJ,"Sick during the day",Sick
-Jsc,"Sick without certificate",Sick
-A,"Any absence",Sick
-C,"Day off",Off
-C1,"Half-day off",Off
-CC,"Leave for exceptionnal circumstance",Off
-CS,"Union day off",Off
-DA,"Special leave",Off
-DS,"Blood donation",Off
-Fm,"In training",Training
-PR,"Reduced duty",Working
-MT,"Half-Time (statutory)",Part time
-MT5,"Part time 50% (4h00)",Part time
-MT6,"Part time 60% (4h48)",Part time
-MT8,"Part time 80% (6h24)",Part time
-VS,"Civil consultation",Working
-4/5,"4/5 Part time",Part time
-Me,"Mission abroad",Working
-SC,"Selor Civil",Training
+Code,Description,Category,IsWorking,IsOnSite,IsDayCountedOffPot,IsDayCountedOffSickPot
+P,"Present",Working,1,1,0,0
+G,"On duty",Working,1,1,0,0
+R1,"Time off from overtime",Off,0,0,0,0
+TD,"Travail à Distance",Working,1,0,0,0
+Mi,"Missions",Working,1,0,0,0
+Mis,"Mission Renforts",Working,1,0,0,0
+Ma,"Sick",Sick,0,0,0,1
+MJ,"Sick during the day",Sick,0,0,0,1
+Jsc,"Sick without certificate",Sick,0,0,0,1
+A,"Any absence",Sick,0,0,1,0
+C,"Day off",Off,0,0,1,0
+C1,"Half-day off",Off,0,0,1,0
+CC,"Leave for exceptionnal circumstance",Off,0,0,0,0
+CS,"Union day off",Off,0,0,0,0
+DA,"Special leave",Off,0,0,0,0
+DS,"Blood donation",Off,0,0,0,0
+Fm,"In training",Training,1,0,0,0
+PR,"Reduced duty",Working,1,0,0,0
+MT,"Half-Time (statutory)",Part time,0,0,0,0
+MT5,"Part time 50% (4h00)",Part time,0,0,0,0
+MT6,"Part time 60% (4h48)",Part time,0,0,0,0
+MT8,"Part time 80% (6h24)",Part time,0,0,0,0
+VS,"Civil consultation",Working,1,0,0,0
+4/5,"4/5 Part time",Part time,0,0,0,0
+Me,"Mission abroad",Working,1,0,0,0
+SC,"Selor Civil",Training,1,0,0,0
