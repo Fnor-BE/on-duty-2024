@@ -1,0 +1,26 @@
+Code,Description,Category
+P,"Present",Working
+R1,"Time off from overtime",Off
+TD,"Travail à Distance",Working
+Mi,"Missions",Working
+Mis,"Mission Renforts",Working
+Ma,"Sick",Sick
+MJ,"Sick during the day",Sick
+Jsc,"Sick without certificate",Sick
+A,"Any absence",Sick
+C,"Day off",Off
+C1,"Half-day off",Off
+CC,"Leave for exceptionnal circumstance",Off
+CS,"Union day off",Off
+DA,"Special leave",Off
+DS,"Blood donation",Off
+Fm,"In training",Training
+PR,"Reduced duty",Working
+MT,"Half-Time (statutory)",Part time
+MT5,"Part time 50% (4h00)",Part time
+MT6,"Part time 60% (4h48)",Part time
+MT8,"Part time 80% (6h24)",Part time
+VS,"Civil consultation",Working
+4/5,"4/5 Part time",Part time
+Me,"Mission abroad",Working
+SC,"Selor Civil",Training
