@@ -22,7 +22,10 @@ def add_holidays(dimdate: pd.DataFrame, holidays:list) -> pd.DataFrame:
         
     
     dimdate['DaysToHoliday'] = dimdate['Date'].apply(
-        lambda date: min(abs((date - pd.to_datetime(holiday)).days) for holiday in holidays)
+        lambda date: min(
+            abs(np.busday_count(date.date(), pd.to_datetime(holiday).date())) 
+            for holiday in holidays
+        )
     )
     
     return dimdate
