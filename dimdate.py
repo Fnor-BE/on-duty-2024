@@ -16,9 +16,7 @@ def create_dimdate(start: str, end:str) -> pd.DataFrame:
 
 def add_holidays(dimdate: pd.DataFrame, holidays:list) -> pd.DataFrame:
     
-    dimdate['IsHoliday'] = 0
-    dimdate['DaysToHoliday'] = 365
-    
+    dimdate['IsHoliday'] = 0    
     for day in holidays:
         dimdate.loc[dimdate['Date'] == day, 'IsHoliday'] = 1
         
