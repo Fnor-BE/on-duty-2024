@@ -48,7 +48,7 @@ def unpivot_am_or_pm(df, am_or_pm):
     unpivoted = pd.melt(
         df,
         id_vars=['S/Dept', 'Atelier', 'ID', 'Name', 'AMPM'],
-        var_name='Datekey',
+        var_name='DateKey',
         value_name=am_or_pm
     )
     unpivoted.drop(columns=['AMPM'], inplace=True)
@@ -61,7 +61,7 @@ def unpivot_month(df):
     am = unpivot_am_or_pm( df.loc[ df['AMPM'] == 'AM' ], 'AM' )
     pm = unpivot_am_or_pm( df.loc[ df['AMPM'] == 'PM' ], 'PM' )
 
-    merged_df = pd.merge(am, pm, on=['S/Dept', 'Atelier', 'ID', 'Name', 'Datekey'])
+    merged_df = pd.merge(am, pm, on=['S/Dept', 'Atelier', 'ID', 'Name', 'DateKey'])
     
     return merged_df
     
