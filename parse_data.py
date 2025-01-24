@@ -44,26 +44,17 @@ def fill_pm_info(df):
         df[column] = df[column].ffill()
     return df
 
-def unpivot_am_or_pm(df, am_or_pm):
-    unpivoted = pd.melt(
-        df,
-        id_vars=['S/Dept', 'Atelier', 'ID', 'Name', 'AMPM'],
-        var_name='DateKey',
-        value_name=am_or_pm
-    )
-    unpivoted.drop(columns=['AMPM'], inplace=True)
-    return unpivoted
-
 def unpivot_month(df):
     
     df = fill_pm_info(df)
     
-    am = unpivot_am_or_pm( df.loc[ df['AMPM'] == 'AM' ], 'AM' )
-    pm = unpivot_am_or_pm( df.loc[ df['AMPM'] == 'PM' ], 'PM' )
-
-    merged_df = pd.merge(am, pm, on=['S/Dept', 'Atelier', 'ID', 'Name', 'DateKey'])
-    
-    return merged_df
+    unpivoted = pd.melt(
+        df,
+        id_vars=['S/Dept', 'Atelier', 'ID', 'Name', 'AMPM'],
+        var_name='DateKey',
+        value_name='Code'
+    )
+    return unpivoted
     
 
 def load_and_parse_data(excel_file_path:str, year=2020, skip_sheets:int=0, skiprows:int=0) -> pd.DataFrame:
