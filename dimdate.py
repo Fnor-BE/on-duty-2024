@@ -11,6 +11,7 @@ def create_dimdate(start: str, end:str) -> pd.DataFrame:
     dimdate['DayOfWeek'] = dimdate['Date'].dt.weekday + 1
     dimdate['DayOfWeekText'] = dimdate['Date'].dt.day_name()
     dimdate['DayOfWeekShort'] = dimdate['Date'].dt.strftime('%a')
+    dimdate['MonthNumber'] = dimdate['Date'].dt.month
     
     dimdate['IsWeekend'] = np.where( dimdate['DayOfWeek'] > 5, 1, 0 )
     
