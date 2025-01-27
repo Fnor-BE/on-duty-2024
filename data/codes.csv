@@ -1,4 +1,4 @@
-Code,Description,Category,IsWorking,IsOnSite,IsDayCountedOffPot,IsDayCountedOffSickPot
+Code,Description,Status,IsWorking,IsOnSite,IsDayCountedOffPot,IsDayCountedOffSickPot
 P,"Present",Working,1,1,0,0
 G,"On duty",Working,1,1,0,0
 R1,"Time off from overtime",Off,0,0,0,0
